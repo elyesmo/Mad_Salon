@@ -82,6 +82,7 @@ formCreate.onsubmit = ev => {
             }
         }
     }
+    console.log("ee");
     let formData = new FormData(formCreate);
     request.send(formData);
 };
