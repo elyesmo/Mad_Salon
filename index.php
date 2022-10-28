@@ -78,7 +78,7 @@
         <div class="col-1">
         </div>
 
-        <div class="col-4">
+        <div class="col-4 ">
           <div class="image">
             <img src="http://coiffella.fr/wp-content/uploads/2021/04/salon-coifella.jpg" alt="">
           </div>

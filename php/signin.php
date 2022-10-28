@@ -19,10 +19,18 @@ if(!empty($nom) && !empty($prenom) && !empty($email) && !empty($password) && !em
     } else {
         $trouv = false;
 
-        $sql = "SELECT email FROM Users";
+        $sql = "SELECT email FROM Users WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
 
-        while($row = mysqli_fetch_assoc($result)) {
+        if (mysqli_fetch_assoc($result)) {
+            echo "email exists\n";
+        } else {
+            $sql = "INSERT INTO Users(firstname, lastname, email, motDpasse) VALUES('$nom', '$prenom', '$email', '$password')";
+            mysqli_query($conn, $sql);
+            echo "yes";
+        }
+
+        /*while($row = mysqli_fetch_assoc($result)) {
             if ($email == $row["email"]) {
                 echo "email exists\n";
                 $trouv = true;
@@ -33,7 +41,7 @@ if(!empty($nom) && !empty($prenom) && !empty($email) && !empty($password) && !em
             $sql = "INSERT INTO Users(firstname, lastname, email, motDpasse) VALUES('$nom', '$prenom', '$email', '$password')";
             mysqli_query($conn, $sql);
             echo "yes";
-        }
+        }*/
     }
 } else {
     if(empty($nom)) {

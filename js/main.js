@@ -17,6 +17,50 @@ formConnect.onsubmit = e => {
             if (request.readyState == 4 && request.status == 200) {
                 let response = request.response;
                 console.log(response);
+
+                let emailInput = document.querySelector(".login input[name=email]");
+                let passwordInput = document.querySelector(".login input[name=password]");
+
+                response.split("\n").forEach(res => {
+                    if (res == "empty email") {
+                        emailInput.style.borderColor = "red";
+                        setTimeout(function () {
+                            emailInput.style.borderColor = "rgb(229, 229, 229)";
+                        }, 3000);
+                    }
+                    if (res == "empty password") {
+                        passwordInput.style.borderColor = "red";
+                        setTimeout(function () {
+                            passwordInput.style.borderColor = "rgb(229, 229, 229)";
+                        }, 3000);
+                    }
+                    if (res == "Enter a valid mail") {
+                        emailInput.style.borderColor = "red";
+                        setTimeout(function () {
+                            emailInput.style.borderColor = "rgb(229, 229, 229)";
+                        }, 3000);
+                    }
+                    if (res == "email doesn't exist") {
+                        let text = document.querySelector(".login .remarque");
+                        text.innerHTML = "Adresse email n'existe pas!"
+
+                        setTimeout(function () {
+                            text.innerHTML = "";
+                        }, 3000);
+                    }
+                    if (res == "Incorrect password") {
+                        let text = document.querySelector(".login .remarque");
+                        text.innerHTML = "Mot de passe incorrect!"
+                        passwordInput.value = "";
+
+                        setTimeout(function () {
+                            text.innerHTML = "";
+                        }, 3000);
+                    }
+                    if (res == "yes") {
+                        window.open("http://localhost", "_self");
+                    }
+                });
             }
         }
         let formData = new FormData(formConnect);
@@ -39,7 +83,6 @@ formCreate.onsubmit = ev => {
                 let passInput = document.querySelector(".signin input[name=password]");
                 let pass2Input = document.querySelector(".signin input[name=password2]");
     
-                console.log(response);
                 response.split("\n").forEach(res => {
                     if (res == "empty nom") {
                         nomInput.style.borderColor = "red";
@@ -86,7 +129,9 @@ formCreate.onsubmit = ev => {
                         }, 3000);
                     }
                     if (res == "yes") {
-                        window.open("http://localhost", "_self");
+                        setTimeout(function () {
+                            window.open("http://localhost/php/compte.php", "_self");
+                        }, 5000);
                     }
                 });
             }
@@ -162,3 +207,56 @@ btnCreate.onclick = function () {
 
     }
 };
+
+//----------------------------------
+
+let showPassword = document.querySelector(".login .input i.pass");
+let passwordInput = document.querySelector(".login input[name=password]");
+
+showPassword.onclick = () => {
+    if (showPassword.classList.contains("ishide")) {
+        showPassword.classList.replace("fa-eye-slash", "fa-eye");
+        showPassword.classList.replace("ishide", "nothide");
+
+        passwordInput.type = "text";
+    } else if (showPassword.classList.contains("nothide")) {
+        showPassword.classList.replace("fa-eye", "fa-eye-slash");
+        showPassword.classList.replace("nothide", "ishide");
+    
+        passwordInput.type = "password";
+    }
+}
+
+let showPassword2 = document.querySelector(".signin .input i.pass2");
+let passwordInput2 = document.querySelector(".signin input[name=password]");
+
+showPassword2.onclick = () => {
+    if (showPassword2.classList.contains("ishide")) {
+        showPassword2.classList.replace("fa-eye-slash", "fa-eye");
+        showPassword2.classList.replace("ishide", "nothide");
+
+        passwordInput2.type = "text";
+    } else if (showPassword2.classList.contains("nothide")) {
+        showPassword2.classList.replace("fa-eye", "fa-eye-slash");
+        showPassword2.classList.replace("nothide", "ishide");
+    
+        passwordInput2.type = "password";
+    }
+}
+
+let showPassword3 = document.querySelector(".signin .input i.pass3");
+let passwordInput3 = document.querySelector(".signin input[name=password2]");
+
+showPassword3.onclick = () => {
+    if (showPassword3.classList.contains("ishide")) {
+        showPassword3.classList.replace("fa-eye-slash", "fa-eye");
+        showPassword3.classList.replace("ishide", "nothide");
+
+        passwordInput3.type = "text";
+    } else if (showPassword3.classList.contains("nothide")) {
+        showPassword3.classList.replace("fa-eye", "fa-eye-slash");
+        showPassword3.classList.replace("nothide", "ishide");
+    
+        passwordInput3.type = "password";
+    }
+}

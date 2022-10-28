@@ -61,6 +61,7 @@
 
   <div class="main-log">
     <form class="login" method="POST">
+      <div class="remarque"></div>
       <div class="text">
       Déjà inscrit ?
       </div>
@@ -69,7 +70,8 @@
         <input class="mail" name="email" type="text" placeholder="Email">
       </div>
       <div class="input">
-        <i class="fa-regular fa-eye-slash log"></i>
+        <i class="fa-regular fa-eye-slash log pass ishide"></i>
+        <!-- <i class="fa-regular fa-eye log pass ishide"></i> -->
         <input class="password" name="password" type="password" placeholder="Mot de passe"> 
       </div>
       <button class="connect active">Se connecter</button>
@@ -97,11 +99,11 @@
         <input type="text" name="email" placeholder="Email">
       </div>
       <div class="input">
-        <i class="fa-regular fa-eye-slash log"></i>
+        <i class="fa-regular fa-eye-slash log pass2 ishide"></i>
         <input type="password" name="password" placeholder="Mot de passe"> 
       </div>
       <div class="input">
-        <i class="fa-regular fa-eye-slash log"></i>
+        <i class="fa-regular fa-eye-slash log pass3 ishide"></i>
         <input type="password" name="password2" placeholder="Confirmer mot de passe"> 
       </div>
       <button class="create not-active">S'inscrire</button>

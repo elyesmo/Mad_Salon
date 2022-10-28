@@ -141,6 +141,21 @@ nav .login {
     max-width: 100%;
 }
 
+@media screen and (max-width: 400px) {
+    .prestations .image {
+        width: 300px;
+    }
+
+    .info {
+        width: 90%;
+    }
+
+    /* .salon .image {
+        display: none;
+    } */
+}
+
+
 
 
 footer {
@@ -158,6 +173,7 @@ footer {
     background-color: #f7f7f7;
 }
 
+
 .main-log .login {
     background-color: #ffffff;
     padding: 10px;
@@ -167,9 +183,14 @@ footer {
     text-align: center;
 }
 
+
 .main-log .text {
     margin-bottom: 20px;
     user-select: none;
+}
+
+.main-log .remarque {
+    color: red;
 }
 
 .input {
@@ -265,4 +286,13 @@ button.not-active:hover {
 
 .signin .input {
     display: none;
+}
+
+@media screen and (max-width: 400px) {
+    .main-log .login {
+        width: calc(100% - 3px);
+    }
+    .main-log .signin {
+        width: calc(100% - 3px);
+    }
 }
