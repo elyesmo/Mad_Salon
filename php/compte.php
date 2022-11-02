@@ -84,7 +84,8 @@
       ou
     </div>
 
-    <form class="signin">
+    <form class="signin" method="POST">
+    <div class="remarque"></div>
       <div class="text">Créer un compte ?</div>
       <div class="input">
         <i class="fa-solid fa-user log"></i>

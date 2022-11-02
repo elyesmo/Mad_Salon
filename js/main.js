@@ -47,6 +47,11 @@ formConnect.onsubmit = e => {
                         setTimeout(function () {
                             text.innerHTML = "";
                         }, 3000);
+
+                        emailInput.style.borderColor = "red";
+                        setTimeout(function () {
+                            emailInput.style.borderColor = "rgb(229, 229, 229)";
+                        }, 3000);
                     }
                     if (res == "Incorrect password") {
                         let text = document.querySelector(".login .remarque");
@@ -58,7 +63,7 @@ formConnect.onsubmit = e => {
                         }, 3000);
                     }
                     if (res == "yes") {
-                        window.open("http://localhost", "_self");
+                        // window.open("http://localhost", "_self");
                     }
                 });
             }
@@ -77,12 +82,14 @@ formCreate.onsubmit = ev => {
         request.onload = () => {
             if (request.readyState == 4 && request.status == 200) {
                 let response = request.response;
+
                 let nomInput = document.querySelector(".signin input[name=nom]");
                 let prenomInput = document.querySelector(".signin input[name=prenom]");
                 let emailInput = document.querySelector(".signin input[name=email]");
                 let passInput = document.querySelector(".signin input[name=password]");
                 let pass2Input = document.querySelector(".signin input[name=password2]");
-    
+                
+                console.log(response);
                 response.split("\n").forEach(res => {
                     if (res == "empty nom") {
                         nomInput.style.borderColor = "red";
@@ -128,10 +135,23 @@ formCreate.onsubmit = ev => {
                             pass2Input.style.borderColor = "rgb(229, 229, 229)";
                         }, 3000);
                     }
+                    if (res == "email exists") {
+                        let text = document.querySelector(".signin .remarque");
+                        text.innerHTML = "Adresse email existe déja!"
+
+                        setTimeout(function () {
+                            text.innerHTML = "";
+                        }, 3000);
+
+                        emailInput.style.borderColor = "red";
+                        setTimeout(function () {
+                            emailInput.style.borderColor = "rgb(229, 229, 229)";
+                        }, 3000);
+                    }
                     if (res == "yes") {
                         setTimeout(function () {
-                            window.open("http://localhost/php/compte.php", "_self");
-                        }, 5000);
+                            window.open("http://localhost/php/compteCreated.php", "_self");
+                        }, 1000);
                     }
                 });
             }

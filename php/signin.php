@@ -27,21 +27,9 @@ if(!empty($nom) && !empty($prenom) && !empty($email) && !empty($password) && !em
         } else {
             $sql = "INSERT INTO Users(firstname, lastname, email, motDpasse) VALUES('$nom', '$prenom', '$email', '$password')";
             mysqli_query($conn, $sql);
-            echo "yes";
+            echo "yes\n";
         }
 
-        /*while($row = mysqli_fetch_assoc($result)) {
-            if ($email == $row["email"]) {
-                echo "email exists\n";
-                $trouv = true;
-            }
-        }
-
-        if (!$trouv) {
-            $sql = "INSERT INTO Users(firstname, lastname, email, motDpasse) VALUES('$nom', '$prenom', '$email', '$password')";
-            mysqli_query($conn, $sql);
-            echo "yes";
-        }*/
     }
 } else {
     if(empty($nom)) {
