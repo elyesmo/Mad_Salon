@@ -63,7 +63,7 @@ formConnect.onsubmit = e => {
                         }, 3000);
                     }
                     if (res == "yes") {
-                        // window.open("http://localhost", "_self");
+                        window.open("http://localhost/php/rdv.php", "_self");
                     }
                 });
             }
@@ -75,7 +75,7 @@ formConnect.onsubmit = e => {
 
 formCreate.onsubmit = ev => {
     ev.preventDefault();
-
+    
     if (btnCreateActive) {
         let request = new XMLHttpRequest();
         request.open("POST", "../php/signin.php", true);
@@ -89,7 +89,6 @@ formCreate.onsubmit = ev => {
                 let passInput = document.querySelector(".signin input[name=password]");
                 let pass2Input = document.querySelector(".signin input[name=password2]");
                 
-                console.log(response);
                 response.split("\n").forEach(res => {
                     if (res == "empty nom") {
                         nomInput.style.borderColor = "red";

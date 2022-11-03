@@ -1,0 +1,109 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Lato, sans-serif;
+    background-color: #f7f7f7;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 50px;
+    background-color: white;
+    border-bottom: 1px solid #d7d3cf;
+}
+
+
+.button button {
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 4px;
+    border: none;
+    padding: 12px 30px;
+    width: 100%;
+    max-height: 42px;
+    min-height: 42px;
+    background-color: rgb(9, 10, 11);
+    color: rgb(255, 255, 255);
+    margin-bottom: 18px;
+    transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
+    user-select: none;
+}
+
+.button button:hover {
+    background-color: #5A5656;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.section .title {
+    padding: 10px;
+    font-weight: bold;
+}
+
+ul.list {
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: rgb(60 66 87 / 4%) 0px 0px 5px 0px, rgb(0 0 0 / 4%) 0px 0px 10px 0px;
+}
+
+ul.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+ul.list li .info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+ul.list li .info .prix {
+    color: rgb(13, 13, 13);
+    line-height: 1.29;
+    font-size: 13px;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+ul.list li .info button {
+    background-color: white;
+    padding: 4px 8px;
+    line-height: normal;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 3px;
+    border: 1px solid rgb(0, 0, 0);
+    height: 24px;
+    transition: all 0.3s ease-out 0s;
+}
+
+ul.list li .info button:hover {
+    color: #5A5656;
+    border-color: #5A5656;
+}

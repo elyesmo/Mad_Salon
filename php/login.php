@@ -15,22 +15,19 @@ if(!empty($email) && !empty($password)) {
 
         if ($row = mysqli_fetch_assoc($result)) {
             if ($row["motDpasse"] == $password) {
-                echo "yes\n";
-
+                
                 $_SESSION["firstname"] = $row["firstname"];
                 $_SESSION["lastname"] = $row["lastname"];
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["motDpasse"] = $row["motDpasse"];
-
+                
+                echo "yes\n";
             } else {
                 echo "Incorrect password\n";
             }
         } else {
             echo "email doesn't exist\n";
         }
-
-
-        
         
     } else {
         echo "Enter a valid mail\n";
