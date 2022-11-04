@@ -32,9 +32,12 @@
             <button>Se déconnecter</button>
         </div>
     </header>
-    <div class="container">
+    <div class="container h">
+        <form action="">
+        <input type="datetime-local" name="datetime">
+        </form>
         <div class="row">
-            <div class="services col-8">
+            <div class="services col-7">
                 <div class="section">
                     <div class="title">Soin</div>
                     <ul class="list">
@@ -219,8 +222,20 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="section col-5">
+                <div class="title">Services (<span>0</span>)</div>
+                <ul class="list" id="list">
+                </ul>
+
+                <div class="button">
+                    <button class="reserver">Réserver</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="../js/rdv.js"></script>
 </body>
 </html>
 

@@ -3,22 +3,26 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family: Lato, sans-serif;
     background-color: #f7f7f7;
 }
+
 a {
     text-decoration: none;
 }
+
 ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
+/*---------------------------------------*/
 
 header {
     display: flex;
@@ -50,6 +54,12 @@ header {
 
 .button button:hover {
     background-color: #5A5656;
+}
+
+/*---------------------------------------*/
+
+.services .section:last-child {
+    padding-bottom: 30px;
 }
 
 .section {
@@ -106,4 +116,25 @@ ul.list li .info button {
 ul.list li .info button:hover {
     color: #5A5656;
     border-color: #5A5656;
+}
+
+/*---------------------------------------*/
+
+#list {
+    min-height: 51px;
+    background-color: white;
+}
+
+.delete {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+button.reserver {
+    width: fit-content;
+    margin-top: 10px;
+    float: right;
 }

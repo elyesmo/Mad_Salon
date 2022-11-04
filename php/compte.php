@@ -54,7 +54,7 @@
           <a class="nav-link active" href="#">Contact</a>
         </li>
         </ul>
-        <a  href="inscription.html"><button type="button" class="btn btn-outline-light w-5"><i class="fas fa-user"></i> Compte</button></a>
+        <a  href="#"><button type="button" class="btn btn-outline-light w-5"><i class="fas fa-user"></i> Compte</button></a>
       </div>
     </nav>
   </div>
@@ -141,7 +141,7 @@
       <a class="text-white" href="https://mdbootstrap.com/">MadSalon.com</a>
     </div>
 
-    <script src="../js/main.js"></script>
+    <script src="../js/compte.js"></script>
   </footer>
 </body>
 </html>
