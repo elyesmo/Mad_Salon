@@ -37,7 +37,7 @@
         <input type="datetime-local" name="datetime">
         </form>
         <div class="row">
-            <div class="services col-7">
+            <div class="services  col-12 col-sm-12  col-md-7 col-lg-7 col-xl-7">
                 <div class="section">
                     <div class="title">Soin</div>
                     <ul class="list">
@@ -223,7 +223,7 @@
                 </div>
             </div>
 
-            <div class="section col-5">
+            <div class="section col-12 col-sm-12  col-md-5 col-lg-5 col-xl-5">
                 <div class="title">Services (<span>0</span>)</div>
                 <ul class="list" id="list">
                 </ul>
@@ -235,20 +235,61 @@
         </div>
     </div>
 
+    <div id="demo-mobile-month-view">fezfe</div>
+
+    <script>
+        var inst = mobiscroll.eventcalendar('#demo-mobile-month-view', {
+    locale: mobiscroll.localeFr,
+    theme: 'ios',
+    themeVariant: 'light',
+    clickToCreate: false,
+    dragToCreate: false,
+    dragToMove: false,
+    dragToResize: false,
+    eventDelete: false,
+    view: {
+        calendar: { type: 'month' },
+        agenda: { type: 'month' }
+    },
+    onEventClick: function (event, inst) {
+        mobiscroll.toast({
+            message: event.event.title
+        });
+    }
+});
+
+mobiscroll.util.http.getJson('https://trial.mobiscroll.com/events/?vers=5', function (events) {
+    inst.setEvents(events);
+}, 'jsonp');
+    </script>
+
+    <footer class=" text-center text-white">
+        <div class="container p-4 pb-0">
+        <section>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+            ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-google"></i
+            ></a>
+
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+            ></a>
+        </section>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">MadSalon.com</a>
+        </div>
+    </footer>
+
     <script src="../js/rdv.js"></script>
 </body>
 </html>
-
-
-<?php
-
-// session_start();
-
-// if (isset($_SESSION)) {
-//     print_r($_SESSION);
-// } else {
-//     echo "You are not connected!";
-// }
-
-
-?>

@@ -28,9 +28,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 50px;
+    padding: 0px 50px;
     background-color: white;
     border-bottom: 1px solid #d7d3cf;
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 0px 20px;
+    }
 }
 
 
@@ -50,10 +56,18 @@ header {
     margin-bottom: 18px;
     transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
     user-select: none;
+    margin-top: 10px;
 }
 
 .button button:hover {
     background-color: #5A5656;
+}
+
+@media (max-width: 650px) {
+    .button button {
+        padding: 12px 10px;
+        width: 150px;
+    }
 }
 
 /*---------------------------------------*/
@@ -137,4 +151,8 @@ button.reserver {
     width: fit-content;
     margin-top: 10px;
     float: right;
+}
+
+footer {
+    background-color: #1f1f1f;
 }

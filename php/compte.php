@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" />
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleHeadFoot.css">
+    <link rel="stylesheet" href="../css/styleLog.css">
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
