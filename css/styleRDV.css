@@ -152,6 +152,12 @@ ul.list li .info button:hover {
     justify-content: end;
 }
 
+form .button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 button.reserver {
     width: fit-content;
     margin-top: 10px;
@@ -164,6 +170,7 @@ button.reserver {
     box-shadow: rgb(60 66 87 / 4%) 0px 0px 5px 0px, rgb(0 0 0 / 4%) 0px 0px 10px 0px;
     padding: 20px;
     position: relative;
+    user-select: none;
 }
 
 .calendar-header {
@@ -211,6 +218,11 @@ button.reserver {
     animation: to-top 1s forwards;
 }
 
+.calendar-days div.selected {
+    background-color: black;
+    color: white;
+}
+
 .calendar-days div::before {
     content: "";
     display: none;
@@ -250,12 +262,14 @@ button.reserver {
     cursor: pointer;
 }
 
-.calendar-days div span {
+/* .calendar-days div span {
     position: absolute;
-}
+} */
 
 .calendar-days div:hover {
     transition: width .2s ease-in-out, height .2s ease-in-out;
+    color: white;
+    background-color: black;
 }
 
 .month-list {
@@ -288,6 +302,24 @@ button.reserver {
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+}
+
+.hour-pick {
+    margin-top: 10px;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    outline: none;
+}
+
+.hour-pick option {
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.hour-pick option:hover {
+    background-color: black;
 }
 
 

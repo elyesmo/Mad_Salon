@@ -228,10 +228,6 @@
                     <div class="title">Prestations (<span>0</span>)</div>
                     <ul class="list" id="list">
                     </ul>
-
-                    <div class="button">
-                        <button class="reserver">Réserver</button>
-                    </div>
                 </div>
 
                 <div class="section">
@@ -268,25 +264,20 @@
                         </div>
 
                         <div class="calendar-days">
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
-                            <div>1</div>
                         </div>
                     </div>
 
                     <div class="month-list"></div>
+
+                    <form class="hour">
+                        <select name="hour-pick" id="" class="hour-pick">
+                            <option value="">Choisissez l'heure</option>
+                        </select>
+
+                        <div class="button">
+                            <button class="reserver">Réserver</button>
+                        </div>
+                    </form>
                 </div>
 
 

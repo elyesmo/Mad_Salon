@@ -116,13 +116,16 @@ generateCalendar = (month, year) => {
         if(i >= firstDay.getDay()) {
             day.classList.add("calendar-day-hover");
             day.innerHTML = i - firstDay.getDay() + 1;
-            day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`;
             
-            if(i - firstDay.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
+            let dayTemp = new Date(month, year, i - firstDay.getDay() + 1);
+            if (i - firstDay.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add("curr-date");
+            }
+
+            if ((year < currDate.getFullYear()) || ((year === currDate.getFullYear()) && (month < currDate.getMonth())) || ((i - firstDay.getDay() + 1 <= currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth())) || (dayTemp.getDay() === 0 || dayTemp.getDay() === 1)) {
+                day.style.color = "rgb(162, 162, 153)";
+                day.style.cursor = "not-allowed";
+                day.classList.add("no");
             }
         }
         calendarDays.appendChild(day);
@@ -159,5 +162,72 @@ let currYear = {value: currDate.getFullYear()};
 
 generateCalendar(currMonth.value, currYear.value);
 
+let select = document.querySelector(".hour-pick");
+
+document.querySelector(".calendar-days").addEventListener('DOMSubtreeModified', () => {
+    pickDate();
+}, false);
+
+pickDate();
+
+function pickDate() {
+    document.querySelectorAll(".calendar-days div").forEach((div) => {
+        div.onclick = () => {
+            select.innerHTML = "";
+            let option = document.createElement("option");
+            option.innerHTML = "Choisissez l'heure";
+            select.appendChild(option);
+            document.querySelectorAll(".calendar-days div").forEach((elem) => {
+                elem.classList.remove("selected");
+            });
+            if (!div.classList.contains("no")) {
+                if (div.innerHTML != "") {
+    
+                    div.classList.add("selected");
+                    let dayTemp = new Date(currMonth.value, currYear.value, div.innerHTML);
+                    if (!([0, 1].includes(dayTemp.getDay()))) {
+                        if ([2, 3, 5].includes(dayTemp.getDay())) {
+                            for (let i = 9; i < 19; i++) {
+                                let option = document.createElement("option");
+                                option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
+                                option.setAttribute("value", i);
+                                select.appendChild(option);
+                            }
+                        } else if([4, 6].includes(dayTemp.getDay())) {
+                            for (let i = 9; i < 18; i++) {
+                                let option = document.createElement("option");
+                                option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
+                                option.setAttribute("value", i);
+                                select.appendChild(option);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    });
+}
+
+
+// Reserver le rdv
+
+const form = document.querySelector("form.hour");
+
+form.onsubmit = e => {
+    e.preventDefault();
+
+    let request = new XMLHttpRequest();
+    request.open("POST", "../php/dateTime.php", true);
+
+    request.onload = () => {
+        if (request.readyState == 4 && request.status == 200) {
+            let response = request.response;
+            console.log(response);
+        }
+    }
+    
+    let formData = new FormData(form);
+     request.send(formData);
+};
 
 
