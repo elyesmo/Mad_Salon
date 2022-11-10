@@ -34,10 +34,10 @@
     </header>
     <div class="container h">
         <form action="">
-        <input type="datetime-local" name="datetime">
+        <!-- <input type="datetime-local" name="datetime"> -->
         </form>
         <div class="row">
-            <div class="services  col-12 col-sm-12  col-md-7 col-lg-7 col-xl-7">
+            <div class="services  col-12 col-sm-12  col-md-12 col-lg-7 col-xl-7">
                 <div class="section">
                     <div class="title">Soin</div>
                     <ul class="list">
@@ -223,45 +223,78 @@
                 </div>
             </div>
 
-            <div class="section col-12 col-sm-12  col-md-5 col-lg-5 col-xl-5">
-                <div class="title">Services (<span>0</span>)</div>
-                <ul class="list" id="list">
-                </ul>
+            <div class="right-col col-12 col-sm-12  col-md-12 col-lg-5 col-xl-5">
+                <div class="section">
+                    <div class="title">Prestations (<span>0</span>)</div>
+                    <ul class="list" id="list">
+                    </ul>
 
-                <div class="button">
-                    <button class="reserver">Réserver</button>
+                    <div class="button">
+                        <button class="reserver">Réserver</button>
+                    </div>
                 </div>
-            </div>
+
+                <div class="section">
+                    <div class="title">Réservations (<span>0</span>)</div>
+                    <ul class="list" id="list">
+                    </ul>
+                </div>
+
+                <div class="calendrier section">
+                    <div class="calendar-header">
+                        <span class="month-picker" id="month-picker">
+                            November
+                        </span>
+                        <div class="year-picker">
+                            <span class="year-change" id="prev-year">
+                                <pre><</pre>
+                            </span>
+                            <span id="year">2022</span>
+                            <span class="year-change" id="next-year">
+                                <pre>></pre>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="calendar-body">
+                        <div class="calendar-week-day">
+                            <div>Dim</div>
+                            <div>Lun</div>
+                            <div>Mar</div>
+                            <div>Mer</div>
+                            <div>Jeu</div>
+                            <div>Ven</div>
+                            <div>Sam</div>
+                        </div>
+
+                        <div class="calendar-days">
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                            <div>1</div>
+                        </div>
+                    </div>
+
+                    <div class="month-list"></div>
+                </div>
+
+
+            </div>          
         </div>
     </div>
 
-    <div id="demo-mobile-month-view">fezfe</div>
 
-    <script>
-        var inst = mobiscroll.eventcalendar('#demo-mobile-month-view', {
-    locale: mobiscroll.localeFr,
-    theme: 'ios',
-    themeVariant: 'light',
-    clickToCreate: false,
-    dragToCreate: false,
-    dragToMove: false,
-    dragToResize: false,
-    eventDelete: false,
-    view: {
-        calendar: { type: 'month' },
-        agenda: { type: 'month' }
-    },
-    onEventClick: function (event, inst) {
-        mobiscroll.toast({
-            message: event.event.title
-        });
-    }
-});
-
-mobiscroll.util.http.getJson('https://trial.mobiscroll.com/events/?vers=5', function (events) {
-    inst.setEvents(events);
-}, 'jsonp');
-    </script>
 
     <footer class=" text-center text-white">
         <div class="container p-4 pb-0">

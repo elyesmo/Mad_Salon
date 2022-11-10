@@ -63,7 +63,7 @@ formConnect.onsubmit = e => {
                         }, 3000);
                     }
                     if (res == "yes") {
-                        window.open("http://localhost/php/rdv.php", "_self");
+                        window.open("../php/rdv.php", "_self");
                     }
                 });
             }
@@ -149,7 +149,7 @@ formCreate.onsubmit = ev => {
                     }
                     if (res == "yes") {
                         setTimeout(function () {
-                            window.open("http://localhost/php/compteCreated.php", "_self");
+                            window.open("../php/compteCreated.php", "_self");
                         }, 1000);
                     }
                 });

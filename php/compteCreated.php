@@ -16,7 +16,7 @@
 
     <script>
         setTimeout(() => {
-            window.open("http://localhost/php/compte.php", "_self");
+            window.open("./compte.php", "_self");
         }, 5000);
     </script>
     <title>Mad Salon - Compte Créé</title>
