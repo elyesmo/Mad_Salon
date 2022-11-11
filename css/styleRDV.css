@@ -152,7 +152,7 @@ ul.list li .info button:hover {
     justify-content: end;
 }
 
-form .button {
+.hour .button {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -302,6 +302,10 @@ button.reserver {
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+}
+
+div.hour {
+    text-align: center;
 }
 
 .hour-pick {

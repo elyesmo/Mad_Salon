@@ -176,6 +176,7 @@ function pickDate() {
             select.innerHTML = "";
             let option = document.createElement("option");
             option.innerHTML = "Choisissez l'heure";
+            option.setAttribute("value", "0");
             select.appendChild(option);
             document.querySelectorAll(".calendar-days div").forEach((elem) => {
                 elem.classList.remove("selected");
@@ -185,20 +186,84 @@ function pickDate() {
     
                     div.classList.add("selected");
                     let dayTemp = new Date(currMonth.value, currYear.value, div.innerHTML);
+
+                    
                     if (!([0, 1].includes(dayTemp.getDay()))) {
                         if ([2, 3, 5].includes(dayTemp.getDay())) {
                             for (let i = 9; i < 19; i++) {
-                                let option = document.createElement("option");
-                                option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
-                                option.setAttribute("value", i);
-                                select.appendChild(option);
+                                let request = new XMLHttpRequest();
+                                request.open("POST", "../php/dateTime.php", true);
+                                request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                                request.send(`rdv=${i}-${div.innerHTML}-${currMonth.value+1}-${currYear.value}`);
+            
+                                request.onreadystatechange = () => {
+                                    if (request.readyState === 4 && request.status === 200) {
+                                        let response = request.response;
+                                       
+                                        if (response == "no") {
+                                            let option = document.createElement("option");
+                                            option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
+                                            option.setAttribute("value", i);
+                                            select.appendChild(option);
+
+                                            let options = document.querySelectorAll("select option");
+                                            options = Array.from(options);
+
+                                            for (let i = 0; i < options.length; i++) {
+                                                for (let j = i + 1; j < options.length; j++) {
+                                                    if (+options[i].value > +options[j].value) {
+                                                        temp = options[i];
+                                                        options[i] = options[j];
+                                                        options[j] = temp;
+                                                    }
+                                                }
+                                            }
+
+                                            select.innerHTML = "";
+                                            options.forEach((opt) => {
+                                                select.appendChild(opt);
+                                            });
+                                        }
+                                    }
+                                };
                             }
                         } else if([4, 6].includes(dayTemp.getDay())) {
                             for (let i = 9; i < 18; i++) {
-                                let option = document.createElement("option");
-                                option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
-                                option.setAttribute("value", i);
-                                select.appendChild(option);
+                                let request = new XMLHttpRequest();
+                                request.open("POST", "../php/dateTime.php", true);
+                                request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                                request.send(`rdv=${i}-${div.innerHTML}-${currMonth.value+1}-${currYear.value}`);
+            
+                                request.onreadystatechange = () => {
+                                    if (request.readyState === 4 && request.status === 200) {
+                                        let response = request.response;
+
+                                        if (response == "no") {
+                                            let option = document.createElement("option");
+                                            option.innerHTML = i < 10 ? `0${i}:00`: `${i}:00`;
+                                            option.setAttribute("value", i);
+                                            select.appendChild(option);
+
+                                            let options = document.querySelectorAll("select option");
+                                            options = Array.from(options);
+
+                                            for (let i = 0; i < options.length; i++) {
+                                                for (let j = i + 1; j < options.length; j++) {
+                                                    if (+options[i].value > +options[j].value) {
+                                                        temp = options[i];
+                                                        options[i] = options[j];
+                                                        options[j] = temp;
+                                                    }
+                                                }
+                                            }
+
+                                            select.innerHTML = "";
+                                            options.forEach((opt) => {
+                                                select.appendChild(opt);
+                                            });
+                                        }
+                                    }
+                                };
                             }
                         }
                     }
@@ -213,21 +278,29 @@ function pickDate() {
 
 const form = document.querySelector("form.hour");
 
-form.onsubmit = e => {
-    e.preventDefault();
+// form.onsubmit = e => {
+//     e.preventDefault();
 
-    let request = new XMLHttpRequest();
-    request.open("POST", "../php/dateTime.php", true);
+//     let request = new XMLHttpRequest();
+//     request.open("POST", "../php/dateTime.php", true);
 
-    request.onload = () => {
-        if (request.readyState == 4 && request.status == 200) {
-            let response = request.response;
-            console.log(response);
-        }
-    }
+//     request.onload = () => {
+//         if (request.readyState == 4 && request.status == 200) {
+//             let response = request.response;
+//             console.log(response);
+//             if (select.value == "") {
+//                 select.style.color = "red";
+//                 select.style.borderColor = "red";
+//                 setTimeout(() => {
+//                     select.style.color = "black";
+//                     select.style.borderColor = "black";
+//                 }, 3000);
+//             }
+//         }
+//     }
     
-    let formData = new FormData(form);
-     request.send(formData);
-};
+//     let formData = new FormData(form);
+//     request.send(formData);
+// };
 
 

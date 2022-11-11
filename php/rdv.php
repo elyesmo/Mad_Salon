@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="shortcut icon" href="#" />
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" />
-    <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="../css/styleRDV.css">
     
     <!-- JavaScripts -->
@@ -17,8 +17,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
     
     <title>Mad Salon - Prendre RDV</title>
 </head>
@@ -269,15 +269,15 @@
 
                     <div class="month-list"></div>
 
-                    <form class="hour">
+                    <div class="hour">
                         <select name="hour-pick" id="" class="hour-pick">
-                            <option value="">Choisissez l'heure</option>
+                            <option value="0">Choisissez l'heure</option>
                         </select>
 
                         <div class="button">
                             <button class="reserver">Réserver</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
 
 
