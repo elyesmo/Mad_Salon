@@ -15,7 +15,7 @@ if(!empty($email) && !empty($password)) {
 
         if ($row = mysqli_fetch_assoc($result)) {
             if ($row["motDpasse"] == $password) {
-                
+                $_SESSION["id"] = $row["id"];
                 $_SESSION["firstname"] = $row["firstname"];
                 $_SESSION["lastname"] = $row["lastname"];
                 $_SESSION["email"] = $row["email"];

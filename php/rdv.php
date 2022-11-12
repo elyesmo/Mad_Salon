@@ -230,7 +230,7 @@
                     </ul>
                 </div>
 
-                <div class="section">
+                <div class="section rdvs">
                     <div class="title">Réservations (<span>0</span>)</div>
                     <ul class="list" id="list">
                     </ul>

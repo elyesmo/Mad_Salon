@@ -130,6 +130,8 @@ generateCalendar = (month, year) => {
         }
         calendarDays.appendChild(day);
     }
+    let select = document.querySelector(".hour-pick");
+    select.innerHTML = "<option value='0'>Choisissez l'heure</option>";
 };
 
 let monthList = calendar.querySelector(".month-list");
@@ -173,11 +175,11 @@ pickDate();
 function pickDate() {
     document.querySelectorAll(".calendar-days div").forEach((div) => {
         div.onclick = () => {
-            select.innerHTML = "";
-            let option = document.createElement("option");
-            option.innerHTML = "Choisissez l'heure";
-            option.setAttribute("value", "0");
-            select.appendChild(option);
+            select.innerHTML = "<option value='0'>Choisissez l'heure</option>";
+            // let option = document.createElement("option");
+            // option.innerHTML = "Choisissez l'heure";
+            // option.setAttribute("value", "0");
+            // select.appendChild(option);
             document.querySelectorAll(".calendar-days div").forEach((elem) => {
                 elem.classList.remove("selected");
             });
@@ -276,31 +278,66 @@ function pickDate() {
 
 // Reserver le rdv
 
-const form = document.querySelector("form.hour");
+let btnReserver = document.querySelector(".hour .reserver");
 
-// form.onsubmit = e => {
-//     e.preventDefault();
+btnReserver.onclick = () => {
+    if (select.value != "0") {
+        let request = new XMLHttpRequest();
 
-//     let request = new XMLHttpRequest();
-//     request.open("POST", "../php/dateTime.php", true);
+        request.open("POST", "../php/reserver.php", true);
+        request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        request.send(`rdv=${select.value}-${document.querySelector(".calendar-days .selected").innerHTML}-${currMonth.value+1}-${currYear.value}`);
 
-//     request.onload = () => {
-//         if (request.readyState == 4 && request.status == 200) {
-//             let response = request.response;
-//             console.log(response);
-//             if (select.value == "") {
-//                 select.style.color = "red";
-//                 select.style.borderColor = "red";
-//                 setTimeout(() => {
-//                     select.style.color = "black";
-//                     select.style.borderColor = "black";
-//                 }, 3000);
-//             }
-//         }
-//     }
-    
-//     let formData = new FormData(form);
-//     request.send(formData);
-// };
+        request.onreadystatechange = () => {
+            if (request.readyState == 4 && request.status == 200) {
+                select.innerHTML = "<option value='0'>Choisissez l'heure</option>";
+                document.querySelectorAll(".calendar-days div").forEach((div) => {
+                    if (div.classList.contains("selected")) {
+                        div.classList.remove("selected");
+                    }
+                });
+            }
+        };
+    }
+};
+
+uploadRdv();
+
+function uploadRdv() {
+    let request = new XMLHttpRequest();
+
+    request.open("POST", "../php/uploadRdv.php", true);
+    request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    request.send();
+
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200) {
+            let response = request.response;
+            console.log(response);
+            let list = document.querySelector(".rdvs #list");
+
+            response.split(".").forEach((date) => {
+                if (date != "") {
+        
+                    let elem = document.createElement("li");
+                    let name = document.createElement("div");
+                    let del = document.createElement("div");
+        
+                    name.classList.add("service-name");
+                    del.classList.add("delete");
+                    
+                    name.appendChild(document.createTextNode(date));
+                    del.appendChild(document.createTextNode("x"));
+        
+                    elem.appendChild(name);
+                    elem.appendChild(del);
+        
+                    list.appendChild(elem);
+                }
+            });
+
+        }
+    };
+}
 
 
