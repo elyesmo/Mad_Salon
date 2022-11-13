@@ -23,7 +23,7 @@ logout.onclick = () => {
 
 
 ul.addEventListener('DOMSubtreeModified', () => {
-    btnDel = document.querySelectorAll(".delete");
+    btnDel = document.querySelectorAll(".pres .delete");
     
     btnDel.forEach((btn) => {
         btn.onclick = () => {
@@ -296,6 +296,10 @@ btnReserver.onclick = () => {
                         div.classList.remove("selected");
                     }
                 });
+                document.querySelector(".pres .list").innerHTML = "";
+                document.querySelector(".pres .title span").innerHTML = 0;
+
+                uploadRdv();
             }
         };
     }
@@ -313,8 +317,10 @@ function uploadRdv() {
     request.onreadystatechange = () => {
         if (request.readyState == 4 && request.status == 200) {
             let response = request.response;
-            console.log(response);
             let list = document.querySelector(".rdvs #list");
+            let nbRdv = 0;
+
+            list.innerHTML = "";
 
             response.split(".").forEach((date) => {
                 if (date != "") {
@@ -325,19 +331,49 @@ function uploadRdv() {
         
                     name.classList.add("service-name");
                     del.classList.add("delete");
+
+                    date = date.split("-");
                     
-                    name.appendChild(document.createTextNode(date));
+                    name.appendChild(document.createTextNode((+date[1] < 10 ? `0${date[1]}` : date[1]) + " " +  monthNames[+date[2] - 1] + " " +  date[3] + " " + (+date[0] < 10 ? `0${date[0]}:00` : `${date[0]}:00`)));
                     del.appendChild(document.createTextNode("x"));
         
                     elem.appendChild(name);
                     elem.appendChild(del);
         
                     list.appendChild(elem);
+
+                    nbRdv++;
                 }
             });
+
+            document.querySelector(".rdvs .title span").innerHTML = nbRdv;
 
         }
     };
 }
+
+document.querySelector(".rdvs .list").addEventListener('DOMSubtreeModified', () => {
+    btnDel = document.querySelectorAll(".rdvs .delete");
+    
+    btnDel.forEach((btn) => {
+        btn.onclick = () => {
+
+            let dates = btn.parentElement.children[0].textContent.split(" ");
+            // console.log("rdv=" + +dates[3].slice(0, 2) + "-" + +dates[0] + "-" + (monthNames.indexOf(dates[1])+1) + "-" + dates[2]);
+
+            let request = new XMLHttpRequest();
+            request.open("POST", "../php/deleteRdv.php", true);
+            request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            request.send("rdv=" + +dates[3].slice(0, 2) + "-" + +dates[0] + "-" + (monthNames.indexOf(dates[1])+1) + "-" + dates[2]);
+
+            btn.parentElement.style.display = "none";
+
+            uploadRdv();
+
+            
+        }
+    });
+}, false);
+
 
 

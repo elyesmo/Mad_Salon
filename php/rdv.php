@@ -224,7 +224,7 @@
             </div>
 
             <div class="right-col col-12 col-sm-12  col-md-12 col-lg-5 col-xl-5">
-                <div class="section">
+                <div class="section pres">
                     <div class="title">Prestations (<span>0</span>)</div>
                     <ul class="list" id="list">
                     </ul>
