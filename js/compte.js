@@ -229,22 +229,6 @@ btnCreate.onclick = function () {
 
 //----------------------------------
 
-let showPassword = document.querySelector(".login .input i.pass");
-let passwordInput = document.querySelector(".login input[name=password]");
-
-showPassword.onclick = () => {
-    if (showPassword.classList.contains("ishide")) {
-        showPassword.classList.replace("fa-eye-slash", "fa-eye");
-        showPassword.classList.replace("ishide", "nothide");
-
-        passwordInput.type = "text";
-    } else if (showPassword.classList.contains("nothide")) {
-        showPassword.classList.replace("fa-eye", "fa-eye-slash");
-        showPassword.classList.replace("nothide", "ishide");
-    
-        passwordInput.type = "password";
-    }
-}
 
 let showPassword2 = document.querySelector(".signin .input i.pass2");
 let passwordInput2 = document.querySelector(".signin input[name=password]");

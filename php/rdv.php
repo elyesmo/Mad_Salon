@@ -28,8 +28,13 @@
             <h2>Mad Salon</h2>
         </div>
 
-        <div class="button">
-            <button>Se déconnecter</button>
+        <div class="buttons">
+            <div class="button">
+                <button class="compte">Modifier compte</button>
+            </div>
+            <div class="button">
+                <button class="deconnecter">Se déconnecter</button>
+            </div>
         </div>
     </header>
     <div class="container h">

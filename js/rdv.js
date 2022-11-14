@@ -1,9 +1,14 @@
-const logout = document.querySelector("header button");
+const logout = document.querySelector("header .deconnecter");
+const modifier = document.querySelector("header .compte")
 let btns = document.querySelectorAll("ul.list li .info button");
 let ul = document.querySelector("#list");
 let nbServices = document.querySelector(".section .title span");
 let btnDel = [];
 const lis = [];
+
+modifier.onclick = () => {
+    window.open("../php/modifierCompte.php", "_self");
+};
 
 logout.onclick = () => {
     let request = new XMLHttpRequest();

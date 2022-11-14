@@ -1,0 +1,240 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    background-color: #f7f7f7;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/*---------------------------------------*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    background-color: white;
+    border-bottom: 1px solid #d7d3cf;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 0px 20px;
+    }
+    .log h2 {
+        font-size: 14px;
+    }
+}
+
+
+.button button {
+    display: block;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 4px;
+    border: none;
+    padding: 12px 30px;
+    width: 100%;
+    max-height: 42px;
+    min-height: 42px;
+    background-color: rgb(9, 10, 11);
+    color: rgb(255, 255, 255);
+    margin-bottom: 18px;
+    transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
+    user-select: none;
+    margin-top: 10px;
+}
+
+.button button:hover {
+    background-color: #5A5656;
+}
+
+.button .compte {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 4px;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 12px 30px;
+    width: 100%;
+    max-height: 42px;
+    min-height: 42px;
+    background-color: transparent;
+    color: rgb(13, 13, 13);
+    /* margin-bottom: 6px; */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
+    user-select: none;
+}
+
+.button.compte:hover {
+    color: #5A5656;
+    border-color: #5A5656;
+}
+
+@media (max-width: 650px) {
+    .button button,
+    .button .compte {
+        padding: 12px 10px;
+        width: 100px;
+        font-size: 10px;
+    }
+}
+
+
+/*----------------------*/
+
+.main-log {
+    height: calc(100vh - 97px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #f7f7f7;
+}
+
+
+.main-log .login,
+.main-log .supprimer {
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: rgb(60 66 87 / 4%) 0px 0px 5px 0px, rgb(0 0 0 / 4%) 0px 0px 10px 0px;
+    padding: 12px 15px 18px;
+    width: 400px;
+    text-align: center;
+}
+
+
+.main-log .text {
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.main-log .remarque {
+    color: rgb(22, 128, 22);
+}
+
+.input {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input input {
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 42px;
+    border-radius: 4px;
+    border: 1px solid rgb(229, 229, 229);
+    outline: none;
+    background-color: white;
+    cursor: text;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 12px 50px 12px 12px !important;
+    transition: border-color 1s ease;
+}
+
+.input i.log {
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    font-size: 20px;
+}
+
+button.active {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 4px;
+    border: none;
+    padding: 12px 30px;
+    width: 100%;
+    max-height: 42px;
+    min-height: 42px;
+    background-color: rgb(9, 10, 11);
+    color: rgb(255, 255, 255);
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
+    user-select: none;
+}
+
+button.active:hover {
+    background-color: #5A5656;
+}
+
+button.delete {
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.29;
+    border-radius: 4px;
+    border: none;
+    padding: 12px 30px;
+    width: 100%;
+    max-height: 42px;
+    min-height: 42px;
+    background-color: rgb(215, 18, 18);
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-out 0s, color 0.3s ease-out 0s, border-color 0.3s ease-out 0s;
+    user-select: none;    
+}
+
+
+.main-log .modifier {
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: rgb(60 66 87 / 4%) 0px 0px 5px 0px, rgb(0 0 0 / 4%) 0px 0px 10px 0px;
+    padding: 12px 15px 18px;
+    width: 400px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 400px) {
+    .main-log .modifier,
+    .main-log .supprimer {
+        width: calc(100% - 3px);
+    }
+}
+
+
+
+
+
+
+
+
+footer {
+    background-color: #1f1f1f;
+}
