@@ -78,8 +78,6 @@
       </div>
       <button class="connect active">Se connecter</button>
       
-
-      <a href="" class="oublie">Mot de passe oublié ?</a>
     </form>
 
     <div class="ou">
