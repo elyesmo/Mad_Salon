@@ -23,6 +23,12 @@
     <title>Mad Salon - Modifier Compte</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if (!$_SESSION["id"]) {
+            header('location: ./compte.php');      
+        }
+    ?>
     <header>
         <div class="log">
             <h2>Mad Salon</h2>
@@ -40,7 +46,7 @@
     <div class="container h">
         <div class="main-log">
             <form class="modifier" method="POST">
-                <?php session_start(); ?>
+                <!-- <?php session_start(); ?> -->
                 <div class="remarque"></div>
                 <div class="text">Modifier vos informations</div>
                 <div class="input">
@@ -76,7 +82,7 @@
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_assoc($result);
 
-                if ($row["Role"] == "1") {
+                if ($row["sonRole"] == "1") {
                     echo '<div class="afficher"><button class="active">Afficher les utilisateurs</button></div>';
                 } else {
                     echo '<div class="supprimer"><button class="delete">Supprimer le compte</button></div>';

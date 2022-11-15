@@ -23,6 +23,12 @@
     <title>Mad Salon - Prendre RDV</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if (!$_SESSION["id"]) {
+            header('location: ./compte.php');      
+        }
+    ?>
     <header>
         <div class="log">
             <h2>Mad Salon</h2>

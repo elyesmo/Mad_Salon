@@ -1,5 +1,5 @@
 const logout = document.querySelector("header .deconnecter");
-const modifier = document.querySelector("header .compte")
+const modifier = document.querySelector("header .compte");
 let btns = document.querySelectorAll("ul.list li .info button");
 let ul = document.querySelector("#list");
 let nbServices = document.querySelector(".section .title span");
@@ -34,14 +34,14 @@ ul.addEventListener('DOMSubtreeModified', () => {
         btn.onclick = () => {
             nbServices.textContent = +(nbServices.textContent) - 1;
 
-            btn.parentElement.style.display = "none";
-
+            
             lis.forEach((li) => {
                 if (li.children[0].textContent == btn.parentElement.children[0].textContent) {
                     li.children[1].children[1].removeAttribute("disabled");
                 }
             });
-
+            
+            btn.parentElement.style.display = "none";
         }
     });
 }, false);
@@ -181,10 +181,6 @@ function pickDate() {
     document.querySelectorAll(".calendar-days div").forEach((div) => {
         div.onclick = () => {
             select.innerHTML = "<option value='0'>Choisissez l'heure</option>";
-            // let option = document.createElement("option");
-            // option.innerHTML = "Choisissez l'heure";
-            // option.setAttribute("value", "0");
-            // select.appendChild(option);
             document.querySelectorAll(".calendar-days div").forEach((elem) => {
                 elem.classList.remove("selected");
             });
@@ -301,6 +297,14 @@ btnReserver.onclick = () => {
                         div.classList.remove("selected");
                     }
                 });
+
+
+                document.querySelectorAll("ul.list li .info button").forEach((btn) => {
+                    if(btn.hasAttribute("disabled")) {
+                        btn.removeAttribute("disabled");
+                    }
+                });
+
                 document.querySelector(".pres .list").innerHTML = "";
                 document.querySelector(".pres .title span").innerHTML = 0;
 

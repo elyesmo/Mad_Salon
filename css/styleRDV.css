@@ -45,7 +45,7 @@ header {
         padding: 0px 20px;
     }
     .log h2 {
-        font-size: 14px;
+        font-size: 25px;
     }
 }
 
@@ -93,9 +93,10 @@ header {
     user-select: none;
 }
 
-.button.compte:hover {
-    color: #5A5656;
-    border-color: #5A5656;
+.button .compte:hover {
+    color: #252222;
+    border-color: #bdb5b5;
+    background-color: #d7d3cf;
 }
 
 @media (max-width: 650px) {

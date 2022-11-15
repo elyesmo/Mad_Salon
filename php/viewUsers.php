@@ -9,7 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" />
-    <link rel="stylesheet" href="../css/styleModifier.css">
+    <link rel="stylesheet" href="../css/styleUsers.css">
     
     <!-- JavaScripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
@@ -23,6 +23,12 @@
     <title>Mad Salon - Modifier Compte</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if (!$_SESSION["id"]) {
+            header('location: ./compte.php');      
+        }
+    ?>
     <header>
         <div class="log">
             <h2>Mad Salon</h2>
@@ -37,31 +43,39 @@
             </div>
         </div>
     </header>
-    <div class="container h">
-        <div class="head">
-            <div>Nom</div>
-            <div>Prénom</div>
-            <div>Email</div>
-        </div>
-
-        <div class="body">
-            <?php 
-                include "connection.php";
-
-                $sql = "SELECT * FROM Users";
-                $result = mysqli_query($conn, $sql);
+    <div class="container main-main">
+        <table class="main">
+            <thead class="head">
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+    
+            <tbody class="body">
+                <?php 
+                    include "connection.php";
+    
+                    $sql = "SELECT * FROM Users WHERE sonRole IS NULL";
+                    $result = mysqli_query($conn, $sql);
+                    
+                    while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                        <tr class="user">
+                            <td><?php echo $row["firstname"] ?></td>
+                            <td><?php echo $row["lastname"] ?></td>
+                            <td><?php echo $row["email"] ?></td>
+                            <td class="btn">
+                                <button class="delete-user">Supprimer</button>
+                            </td>
+                    </tr>
+                <?php } ?>
                 
-                while ($row = mysqli_fetch_assoc($result)) {
-            ?>
-                    <div class="user">
-                        <div><?php echo $row["firstname"] ?></div>
-                        <div><?php echo $row["lastname"] ?></div>
-                        <div><?php echo $row["email"] ?></div>
-                    </div>
-            <?php } ?>
-            
-
-        </div>
+    
+                    </tbody>
+        </table>
     </div>
 
 
@@ -92,6 +106,7 @@
             <a class="text-white" href="https://mdbootstrap.com/">MadSalon.com</a>
         </div>
     </footer>
-
+    
+    <script src="../js/afficher.js"></script>
 </body>
 </html>

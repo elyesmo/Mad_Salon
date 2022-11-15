@@ -39,7 +39,10 @@ form.onsubmit = ev => {
             }
 
             if (response.includes("nom ok") || response.includes("prenom ok") || response.includes("email ok") || response.includes("password ok")) {
-                document.querySelector(".remarque").innerHTML = "Modifications enregistrées avec succés !"
+                document.querySelector(".remarque").innerHTML = "Modifications enregistrées avec succés !";
+                setTimeout(() => {
+                    document.querySelector(".remarque").innerHTML = "";
+                }, 3000);
             }
 
             
@@ -133,7 +136,6 @@ logout.onclick = () => {
 };
 
 if (document.querySelector(".afficher button.active")) {
-    console.log("fez");
     const btnAffiche = document.querySelector(".afficher button.active");
     btnAffiche.onclick = () => {
         window.open("../php/viewUsers.php", "_self");
