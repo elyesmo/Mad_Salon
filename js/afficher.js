@@ -3,10 +3,12 @@ const modifier = document.querySelector("header .compte");
 const table = document.querySelector("table.main");
 
 
+// Boutton mofifier
 modifier.onclick = () => {
     window.open("../php/modifierCompte.php", "_self");
 };
 
+// Boutton deconnection
 logout.onclick = () => {
     let request = new XMLHttpRequest();
     request.open("POST", "../php/logout.php", true);
@@ -25,6 +27,7 @@ logout.onclick = () => {
 //-------------------------
 
 
+// Supprimer l'utilisateur
 let btns = document.querySelectorAll(".delete-user");
 
 btns.forEach((btn) => {

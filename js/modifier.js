@@ -1,5 +1,6 @@
 const form = document.querySelector("form.modifier");
 
+// Modifier les informations du compte
 form.onsubmit = ev => {
     ev.preventDefault();
     
@@ -56,6 +57,8 @@ form.onsubmit = ev => {
 
 
 //-----------------------
+
+// Cacher et montrer les mot de passe
 let showPassword2 = document.querySelector(".modifier .input i.pass2");
 let passwordInput2 = document.querySelector(".modifier input[name=password]");
 
@@ -93,6 +96,7 @@ showPassword3.onclick = () => {
 
 //---------------------------
 
+// Supprimer le compte
 if (document.querySelector(".delete")) {
 
     const btnDelete = document.querySelector(".delete");
@@ -116,6 +120,8 @@ if (document.querySelector(".delete")) {
     };
 }
 
+
+// Boutton de déconnection
 const logout = document.querySelector("header .deconnecter");
 
 logout.onclick = () => {
@@ -135,6 +141,8 @@ logout.onclick = () => {
     request.send(logout);
 };
 
+
+// afficher les utilisateurs
 if (document.querySelector(".afficher button.active")) {
     const btnAffiche = document.querySelector(".afficher button.active");
     btnAffiche.onclick = () => {

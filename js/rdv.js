@@ -6,10 +6,12 @@ let nbServices = document.querySelector(".section .title span");
 let btnDel = [];
 const lis = [];
 
+// Boutton modifier 
 modifier.onclick = () => {
     window.open("../php/modifierCompte.php", "_self");
 };
 
+// Boutton deconnection
 logout.onclick = () => {
     let request = new XMLHttpRequest();
     request.open("POST", "../php/logout.php", true);
@@ -26,7 +28,7 @@ logout.onclick = () => {
 };
 
 
-
+// Activer et desactiser les bouttons choisir
 ul.addEventListener('DOMSubtreeModified', () => {
     btnDel = document.querySelectorAll(".pres .delete");
     
@@ -50,7 +52,7 @@ ul.addEventListener('DOMSubtreeModified', () => {
 
 
 
-
+// Supprimer les services choisis de la liste
 btns.forEach((btn) => {
     btn.onclick = () => {
         if (!btn.hasAttribute("disabled")) {
@@ -82,7 +84,7 @@ btns.forEach((btn) => {
 });
 
 
-// Calendar
+// Calendrier
 isLeapYear = (year) => {
     return (year % 4 === 0 && year % 100 !== 0 && year % 400 !==0) || (year % 100 === 0 && year % 400 ===0);
 }
@@ -102,6 +104,7 @@ monthPicker.onclick = () => {
     monthList.classList.add("show");
 };
 
+// Générer le calendier
 generateCalendar = (month, year) => {
     let calendarDays = document.querySelector(".calendar-days");
     calendarDays.innerHTML = "";
@@ -141,6 +144,7 @@ generateCalendar = (month, year) => {
 
 let monthList = calendar.querySelector(".month-list");
 
+// Afficher les mois
 monthNames.forEach((e, index) => {
     let month = document.createElement("div");
     month.innerHTML = `<div>${e}</div>`;
@@ -152,11 +156,13 @@ monthNames.forEach((e, index) => {
     monthList.appendChild(month);
 });
 
+// Changer l'année
 document.querySelector("#prev-year").onclick = () => {
     currYear.value--;
     generateCalendar(currMonth.value, currYear.value);
 };
 
+// Changer l'année
 document.querySelector("#next-year").onclick = () => {
     currYear.value++;
     generateCalendar(currMonth.value, currYear.value);
@@ -177,6 +183,7 @@ document.querySelector(".calendar-days").addEventListener('DOMSubtreeModified', 
 
 pickDate();
 
+// Choisir la date du rdv
 function pickDate() {
     document.querySelectorAll(".calendar-days div").forEach((div) => {
         div.onclick = () => {
@@ -278,7 +285,6 @@ function pickDate() {
 
 
 // Reserver le rdv
-
 let btnReserver = document.querySelector(".hour .reserver");
 
 btnReserver.onclick = () => {
@@ -316,6 +322,7 @@ btnReserver.onclick = () => {
 
 uploadRdv();
 
+// Afficher les rdv
 function uploadRdv() {
     let request = new XMLHttpRequest();
 
@@ -361,6 +368,8 @@ function uploadRdv() {
     };
 }
 
+
+// Supprimer un rdv
 document.querySelector(".rdvs .list").addEventListener('DOMSubtreeModified', () => {
     btnDel = document.querySelectorAll(".rdvs .delete");
     

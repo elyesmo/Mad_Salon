@@ -7,6 +7,7 @@ const btnCreate = document.querySelector("button.create");
 let btnConnectActive = true;
 let btnCreateActive = false;
 
+// Connecter à son compte
 formConnect.onsubmit = e => {
     e.preventDefault();
 
@@ -73,6 +74,8 @@ formConnect.onsubmit = e => {
     }
 };
 
+
+// Creer un compte
 formCreate.onsubmit = ev => {
     ev.preventDefault();
     
@@ -162,7 +165,7 @@ formCreate.onsubmit = ev => {
 };
 
 
-
+// Switch les formulaire
 btnConnect.onclick = function () {
 
     if (btnConnect.classList.contains("not-active")) {
@@ -180,7 +183,6 @@ btnConnect.onclick = function () {
             inp.style.display = "block";
         });
 
-        document.querySelector("a.oublie").style.display = "block";
 
         inputs = document.querySelectorAll(".signin .input");
 
@@ -213,7 +215,6 @@ btnCreate.onclick = function () {
 
 
 
-        document.querySelector("a.oublie").style.display = "none";
 
         inputs = document.querySelectorAll(".login .input");
         
@@ -230,6 +231,7 @@ btnCreate.onclick = function () {
 //----------------------------------
 
 
+// Monter et cacher le mot de passe
 let showPassword2 = document.querySelector(".signin .input i.pass2");
 let passwordInput2 = document.querySelector(".signin input[name=password]");
 

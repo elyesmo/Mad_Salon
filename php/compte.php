@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="shortcut icon" href="#" />
+    <link rel="icon" href="./images/logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -25,7 +26,7 @@
     <title>Mad Salon - Login</title>
 </head>
 <body>
-<div class="header">
+  <div class="header">
     <nav class="navbar navbar-expand-lg navbar-dark  container">
       <a class="navbar-brand" href="#">
         <img class="lego" src="../images/logo.png" alt="">
