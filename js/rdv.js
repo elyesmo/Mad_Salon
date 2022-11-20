@@ -104,7 +104,7 @@ monthPicker.onclick = () => {
     monthList.classList.add("show");
 };
 
-// Générer le calendier
+// Générer le calendrier
 generateCalendar = (month, year) => {
     let calendarDays = document.querySelector(".calendar-days");
     calendarDays.innerHTML = "";
@@ -117,7 +117,7 @@ generateCalendar = (month, year) => {
     monthPicker.innerHTML = monthNames[month];
     calendarHeaderYear.innerHTML = year;
 
-    let firstDay = new Date(month, year, 1);
+    let firstDay = new Date(year, month, 1);
 
     for (let i = 0; i <= daysOfMonth[month] + firstDay.getDay() - 1; i++) {
         let day = document.createElement("div");
@@ -125,7 +125,7 @@ generateCalendar = (month, year) => {
             day.classList.add("calendar-day-hover");
             day.innerHTML = i - firstDay.getDay() + 1;
             
-            let dayTemp = new Date(month, year, i - firstDay.getDay() + 1);
+            let dayTemp = new Date(year,month, i - firstDay.getDay() + 1);
             if (i - firstDay.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
                 day.classList.add("curr-date");
             }
@@ -195,7 +195,7 @@ function pickDate() {
                 if (div.innerHTML != "") {
     
                     div.classList.add("selected");
-                    let dayTemp = new Date(currMonth.value, currYear.value, div.innerHTML);
+                    let dayTemp = new Date(currYear.value, currMonth.value, div.innerHTML);
 
                     
                     if (!([0, 1].includes(dayTemp.getDay()))) {
