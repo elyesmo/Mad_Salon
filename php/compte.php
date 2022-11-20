@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="shortcut icon" href="#" />
-    <link rel="icon" href="./images/logo.png">
+    <link rel="icon" href="../images/logo.png">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -28,8 +28,8 @@
 <body>
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-dark  container">
-      <a class="navbar-brand" href="#">
-        <img class="lego" src="./images/logo.png" alt="">
+      <a class="navbar-brand" href="../index.php">
+        <img class="lego" src="../images/logo.png" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
