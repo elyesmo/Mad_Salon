@@ -41,20 +41,17 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos pretations</a>
+          <a class="nav-link active" aria-current="page" href="./php/salon.php">Notre salon</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos produits</a>
+          <a class="nav-link active" aria-current="page" href="./php/realisations.php">Nos réalisations</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos réalisations</a>
+          <a class="nav-link active" aria-current="page" href="./php/est.php">Esthétique</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Contact</a>
-        </li>
         </ul>
         <a  href="./php/compte.php"><button type="button" class="btn btn-outline-light w-5"><i class="fas fa-user"></i> Compte</button></a>
       </div>

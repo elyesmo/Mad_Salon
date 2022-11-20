@@ -26,10 +26,10 @@
     <title>Mad Salon - Login</title>
 </head>
 <body>
-  <div class="header">
+<div class="header">
     <nav class="navbar navbar-expand-lg navbar-dark  container">
       <a class="navbar-brand" href="#">
-        <img class="lego" src="../images/logo.png" alt="">
+        <img class="lego" src="./images/logo.png" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,22 +42,19 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos pretations</a>
+          <a class="nav-link active" aria-current="page" href="./salon.php">Notre salon</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos produits</a>
+          <a class="nav-link active" aria-current="page" href="./realisations.php">Nos réalisations</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Nos réalisations</a>
+          <a class="nav-link active" aria-current="page" href="./est.php">Esthétique</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Contact</a>
-        </li>
         </ul>
-        <a  href="#"><button type="button" class="btn btn-outline-light w-5"><i class="fas fa-user"></i> Compte</button></a>
+        <a  href="./compte.php"><button type="button" class="btn btn-outline-light w-5"><i class="fas fa-user"></i> Compte</button></a>
       </div>
     </nav>
   </div>
