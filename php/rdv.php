@@ -193,7 +193,7 @@
                     </ul>
                 </div>
                 <div class="section">
-                    <div class="title">Couleur</div>
+                    <div class="title">Lissage</div>
                     <ul class="list">
                         <li>
                             <div class="service-name">
